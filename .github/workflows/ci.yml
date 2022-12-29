@@ -3,6 +3,8 @@ name: Node.js CI
 on:
   push:
     branches: [ main ]
+    tags: 
+      - v*
   pull_request:
     branches: [ main ]
 
@@ -51,15 +53,14 @@ jobs:
           images: ghcr.io/ozee-io/fga-transformer-cli
           tags: latest
 
-      # - run: yarn publish
-      #   if: github.event_name != 'pull_request'
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: yarn publish
+        if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      # Build and push the app container
       - name: Push
         uses: docker/build-push-action@v3
-        if: github.event_name != 'pull_request'
+        if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
         with:
           push: true
           builder: ${{ steps.buildx.outputs.name }}

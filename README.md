@@ -1,5 +1,5 @@
 # fga-transformer-cli
-[![CI-Tests](https://github.com/Ozee-io/circularmotion/actions/workflows/ci.yml/badge.svg)](https://github.com/Ozee-io/circularmotion/actions/workflows/ci.yml)
+[![Node.js CI](https://github.com/Ozee-io/fga-transformer-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/Ozee-io/fga-transformer-cli/actions/workflows/ci.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Ozee-io_fga-transformer-cli&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Ozee-io_fga-transformer-cli)
 
 <img src="https://www.ozee.io/logos/vector/Ozee_logo_2c.svg" alt="drawing" width="200"/>
