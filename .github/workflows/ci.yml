@@ -19,6 +19,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           scope: '@ozee-io'
+          registry-url: 'https://registry.npmjs.org'
       - run: yarn install
       - run: yarn test
 
