@@ -49,6 +49,12 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ghcr.io/ozee-io/fga-transformer-cli
+          tags: latest
+
+      # - run: yarn publish
+      #   if: github.event_name != 'pull_request'
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       # Build and push the app container
       - name: Push
@@ -58,3 +64,4 @@ jobs:
           push: true
           builder: ${{ steps.buildx.outputs.name }}
           labels: ${{ steps.metadata.outputs.labels }}
+          tags: ${{ steps.metadata.outputs.tags }}
