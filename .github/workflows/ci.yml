@@ -18,6 +18,11 @@ jobs:
       - run: yarn install
       - run: yarn test
 
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       
       # Set up QEMU and Docker Buildx
       - name: Set up QEMU
@@ -50,4 +55,4 @@ jobs:
         with:
           push: true
           builder: ${{ steps.buildx.outputs.name }}
-          labels: ${{ steps.metadata-app.outputs.labels }}
+          labels: ${{ steps.metadata.outputs.labels }}

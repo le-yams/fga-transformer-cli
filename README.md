@@ -1,4 +1,8 @@
 # fga-transformer-cli
+[![CI-Tests](https://github.com/Ozee-io/circularmotion/actions/workflows/ci.yml/badge.svg)](https://github.com/Ozee-io/circularmotion/actions/workflows/ci.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Ozee-io_fga-transformer-cli&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Ozee-io_fga-transformer-cli)
+
+<img src="https://www.ozee.io/logos/vector/Ozee_logo_2c.svg" alt="drawing" width="200"/>
 
 fga-transformer-cli is a simple wrapper around the [openfga syntax-transformer](https://github.com/openfga/syntax-transformer) library to enable programatic transformation of dsls.
 
@@ -19,7 +23,7 @@ npm install @ozee-io/fga-transformer-cli
 git clone git@github.com:Ozee-io/fga-transformer-cli.git
 cd fga-transformer-cli
 yarn install && yarn link
-openfga-syntax-transformer  --source "my/source/file.dsl" --target "my/destination/file.json"
+fga-transformer-cli  --source "my/source/file.dsl" --target "my/destination/file.json"
 ```
 ### Docker: Prerequisites
 - Docker
@@ -29,7 +33,6 @@ openfga-syntax-transformer  --source "my/source/file.dsl" --target "my/destinati
 docker pull ghcr.io/ozee-io/openfga-syntax-transformer
 # or
 git clone git@github.com:Ozee-io/fga-transformer-cli.git
-docker build -t openfga-syntax-transformer .
-docker run -v ${PWD}:/app openfga-syntax-transformer  --source "my/source/file.dsl" --target "my/destination/file.json"
-openfga-syntax-transformer  --source "test/valid.dsl" --target "openfga.json"
+docker build -t fga-transformer-cli .
+docker run -v ${PWD}:/app fga-transformer-cli  --source "my/source/file.dsl" --target "my/destination/file.json"
 ```
