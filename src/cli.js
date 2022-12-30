@@ -1,6 +1,8 @@
 import arg from 'arg';
 import inquirer from 'inquirer';
 import fs from 'fs';
+import path from 'path';
+
 import { friendlySyntaxToApiSyntax } from "@openfga/syntax-transformer";
 
 function parseArgumentsIntoOptions(rawArgs) {
@@ -42,6 +44,8 @@ async function promptForMissingOptions(options) {
 }
 
 export async function transformSyntax(options) {
+
+    // Check Source File Exists
     try {
         await fs.promises.access(options.source)
     } catch (error) {
@@ -49,8 +53,20 @@ export async function transformSyntax(options) {
         return 1
     }
 
-    let transformed_output;
+    // Create Target Directory if missing
+    try {
+        const directory = path.dirname(options.target);
+        if (!fs.existsSync(directory)){
+            fs.mkdirSync(directory, { recursive: true });
+        }
+    } catch (error) {
+        console.log("Cannot create target directory, or target is invalid.")
+        console.log(error)
+        return 1
+    }
 
+    // Read and Transform Input
+    let transformed_output;
     try {
         transformed_output = friendlySyntaxToApiSyntax(fs.readFileSync(options.source, 'utf8'))
     } catch (error) {
@@ -59,12 +75,12 @@ export async function transformSyntax(options) {
         return 1
     }
 
+    // Output to target File
     try {
         await fs.writeFileSync(options.target, JSON.stringify(transformed_output, null, 2))
     } catch (error) {
         console.log(error);
     }
-
     console.log("File Converted Successfully\n");
     console.log("The written has the following contents:");
     console.log(fs.readFileSync(options.target, "utf8"));
