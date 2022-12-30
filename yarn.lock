@@ -1199,6 +1199,18 @@
     "@openfga/sdk" "^0.2.0"
     "nearley" "^2.20.1"
 
+"@ozee-io/fga-transformer-cli@^0.1.0":
+  "integrity" "sha512-7nFKwBftCFkDYBCxIEu/ZHr/uohR7yauy1SD+uPiQvM0T7AqmP1/YfSO4vfcYblLL0CQZkgsMHy6X8ZogNNZcQ=="
+  "resolved" "https://registry.npmjs.org/@ozee-io/fga-transformer-cli/-/fga-transformer-cli-0.1.0.tgz"
+  "version" "0.1.0"
+  dependencies:
+    "@openfga/syntax-transformer" "^0.0.10"
+    "arg" "^5.0.2"
+    "esm" "^3.2.25"
+    "inquirer" "^8.0.0"
+    "install" "^0.13.0"
+    "yarn" "^1.22.19"
+
 "@sinclair/typebox@^0.24.1":
   "integrity" "sha512-1P1OROm/rdubP5aFDSZQILU0vrLCJ4fvHt6EoqHEM+2D/G5MK3bIaymUKLit8Js9gbns5UyJnkP/TZROLw4tUA=="
   "resolved" "https://registry.npmjs.org/@sinclair/typebox/-/typebox-0.24.51.tgz"
@@ -1869,11 +1881,6 @@
   "integrity" "sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw=="
   "resolved" "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   "version" "1.0.0"
-
-"fsevents@^2.3.2":
-  "integrity" "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
-  "resolved" "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
-  "version" "2.3.2"
 
 "function-bind@^1.1.1":
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
