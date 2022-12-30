@@ -5,7 +5,7 @@ import path from 'path';
 
 import { friendlySyntaxToApiSyntax } from "@openfga/syntax-transformer";
 
-function parseArgumentsIntoOptions(rawArgs) {
+export function parseArgumentsIntoOptions(rawArgs) {
     const args = arg(
         {
             '--source': String,
@@ -54,15 +54,9 @@ export async function transformSyntax(options) {
     }
 
     // Create Target Directory if missing
-    try {
-        const directory = path.dirname(options.target);
-        if (!fs.existsSync(directory)){
-            fs.mkdirSync(directory, { recursive: true });
-        }
-    } catch (error) {
-        console.log("Cannot create target directory, or target is invalid.")
-        console.log(error)
-        return 1
+    const directory = path.dirname(options.target);
+    if (!fs.existsSync(directory)){
+        fs.mkdirSync(directory, { recursive: true });
     }
 
     // Read and Transform Input

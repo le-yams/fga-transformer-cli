@@ -1,7 +1,6 @@
-import {transformSyntax} from '../src/cli'
+import {transformSyntax, parseArgumentsIntoOptions} from '../src/cli'
 import path from "path";
 import os from "os";
-import fs from "fs";
 
 let valid_test = "valid.dsl"
 let invalid_test = "invalid.dsl"
@@ -29,6 +28,6 @@ test('Non Existant File', async () => {
 test('Non Existant Directory', async () => {
     return transformSyntax({
         source:path.resolve(__dirname, valid_test),
-        target: path.join(os.tmpdir(), "non-existant", "openfga-non-existant.json")
+        target: path.join(os.tmpdir(), "non", "existant", "openfga-non-existant.json")
     }).then(result => expect(result).toEqual(0))
 });
