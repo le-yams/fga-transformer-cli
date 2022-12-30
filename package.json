@@ -1,6 +1,6 @@
 {
   "name": "@ozee-io/fga-transformer-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple CLI to convert FGA DSL to JSON",
   "main": "src/cli.js",
   "repository": "git@github.com:rorychatterton/fga-transformer-cli.git",
