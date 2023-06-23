@@ -10,8 +10,10 @@ export function parseArgumentsIntoOptions(rawArgs) {
         {
             '--source': String,
             '--target': String,
+            '--verbose': Boolean,
             '-s': '--source',
             '-t': '--target',
+            '-V': '--verbose'
         },
         {
             argv: rawArgs.slice(2),
@@ -21,6 +23,7 @@ export function parseArgumentsIntoOptions(rawArgs) {
 
         source: args['--source'] || null,
         target: args['--target'] || 'openfga.json',
+        verbose: args['--verbose'] || false,
     };
 }
 
@@ -75,9 +78,11 @@ export async function transformSyntax(options) {
     } catch (error) {
         console.log(error);
     }
-    console.log("File Converted Successfully\n");
-    console.log("The written has the following contents:");
-    console.log(fs.readFileSync(options.target, "utf8"));
+    if (options.verbose) {
+        console.log("File Converted Successfully\n");
+        console.log("The written has the following contents:");
+        console.log(fs.readFileSync(options.target, "utf8"));
+    }
     return 0
 }
 

@@ -30,6 +30,9 @@ yarn install && yarn link
 fga-transformer-cli  --source "my/source/file.dsl" --target "my/destination/file.json"
 ```
 
+The generated JSON can also be output in the console by specifying the `--verbose` option.
+
+
 ### Docker
 #### Prerequisites
 - Docker
